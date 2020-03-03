@@ -1,0 +1,15 @@
+D:\source\repos\Attribute and Type Definition Management Tool\PlugIn8\obj\Debug\PlugIn8_MarkupCompile.cache
+D:\source\repos\Attribute and Type Definition Management Tool\PlugIn8\obj\Debug\PlugIn8.g.resources
+D:\source\repos\Attribute and Type Definition Management Tool\PlugIn8\obj\Debug\Attribute and Type Definition Management Tool.csproj.CoreCompileInputs.cache
+D:\source\repos\Attribute and Type Definition Management Tool\PlugIn8\bin\Debug\PlugIn8.dll
+D:\source\repos\Attribute and Type Definition Management Tool\PlugIn8\bin\Debug\PlugIn8.pdb
+D:\source\repos\Attribute and Type Definition Management Tool\PlugIn8\obj\Debug\PlugIn8.dll
+D:\source\repos\Attribute and Type Definition Management Tool\PlugIn8\obj\Debug\PlugIn8.pdb
+D:\source\repos\Attribute and Type Definition Management Tool\PlugIn8\obj\Debug\PlugIn8_MarkupCompile.lref
+D:\source\repos\Attribute and Type Definition Management Tool\PlugIn8\obj\Debug\Views\MainWindow.baml
+D:\source\repos\Attribute and Type Definition Management Tool\PlugIn8\obj\Debug\Views\AttrWindow.g.cs
+D:\source\repos\Attribute and Type Definition Management Tool\PlugIn8\obj\Debug\Views\MainWindow.g.cs
+D:\source\repos\Attribute and Type Definition Management Tool\PlugIn8\obj\Debug\Views\AttrWindow.baml
+D:\source\repos\Attribute and Type Definition Management Tool\PlugIn8\obj\Debug\Attribute and Type Definition Management Tool.csprojAssemblyReference.cache
+D:\source\repos\Attribute and Type Definition Management Tool\PlugIn8\obj\Debug\Views\AvailableAttrWIndow.g.cs
+D:\source\repos\Attribute and Type Definition Management Tool\PlugIn8\obj\Debug\Views\AvailableAttrWIndow.baml

@@ -1,0 +1,136 @@
+﻿<Window x:Class="PlugIn8.Views.AvailableAttrWIndow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PlugIn8.Views"
+        mc:Ignorable="d"
+        Title="Available Attributes" Height="732.258" Width="500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Margin="0,0,-0.4,0.4">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="White"/>
+                <GradientStop Color="WhiteSmoke" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Button Content="Cancel" Command="{Binding CmdSelect}" HorizontalAlignment="Left" BorderBrush="SteelBlue"  Margin="23,668,0,0" VerticalAlignment="Top" Width="64" Height="24" >
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="3"/>
+                </Style>
+            </Button.Resources>
+            <Button.ContentTemplate>
+                <DataTemplate>
+                    <TextBlock Text="Cancel" HorizontalAlignment="Center" VerticalAlignment="Bottom"  Margin="0" Padding="16,6, 10, 10" Height="23" Width="64">
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Style.Triggers>
+                                    <Trigger Property ="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#FFD4D4D4"/>
+
+                                        <Setter Property="Opacity" Value="0.6" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </DataTemplate>
+            </Button.ContentTemplate>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFFFF"/>
+                    <GradientStop Color="#FFD4D4D4" Offset="2"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Style.Triggers>
+                        <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+
+                                    <DoubleAnimation Duration="0:0:.1" Storyboard.TargetProperty="Width" To="56"/>
+                                    <DoubleAnimation Duration="0:0:.1" Storyboard.TargetProperty="Height" To="24"/>
+                                    <!--<DoubleAnimation Storyboard.TargetProperty="(Button.Opacity)"
+                                                        From="1.0" To="0.5" Duration="0:0:1" 
+                                                        AutoReverse="True" 
+                                                        RepeatBehavior="Forever"/>-->
+                                    <ThicknessAnimationUsingKeyFrames
+                Storyboard.TargetProperty="BorderThickness"
+                Duration="0:0:50" FillBehavior="HoldEnd" RepeatBehavior="Forever">
+                                        <LinearThicknessKeyFrame KeyTime="0:0:0.5">
+                                            <LinearThicknessKeyFrame.Value>
+                                                <Thickness Left="1" Right="1" Top="1" Bottom="1" />
+                                            </LinearThicknessKeyFrame.Value>
+                                        </LinearThicknessKeyFrame>
+                                        <DiscreteThicknessKeyFrame KeyTime="0:0:1">
+                                            <DiscreteThicknessKeyFrame.Value>
+                                                <Thickness Left="1" Right="1" Top="1" Bottom="1" />
+                                            </DiscreteThicknessKeyFrame.Value>
+                                        </DiscreteThicknessKeyFrame>
+                                        <SplineThicknessKeyFrame KeySpline="0.6,0.0 0.9,0.00" KeyTime="0:0:3">
+                                            <SplineThicknessKeyFrame.Value>
+                                                <Thickness Left="1" Right="1" Top="1" Bottom="1" />
+                                            </SplineThicknessKeyFrame.Value>
+                                        </SplineThicknessKeyFrame>
+
+                                    </ThicknessAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <!--<DoubleAnimation Storyboard.TargetProperty="(Button.Opacity)"
+                                                        From="0.5" To="1.0" Duration="0:0:1" 
+                                                       
+                                                        />-->
+                                    <DoubleAnimation Duration="0:0:.1" Storyboard.TargetProperty="Width" To="54"/>
+                                    <DoubleAnimation Duration="0:0:.1" Storyboard.TargetProperty="Height" To="23"/>
+                                    <ThicknessAnimationUsingKeyFrames
+                Storyboard.TargetProperty="BorderThickness"
+                Duration="0:0:50" FillBehavior="HoldEnd" RepeatBehavior="Forever">
+                                        <LinearThicknessKeyFrame KeyTime="0:0:0.5">
+                                            <LinearThicknessKeyFrame.Value>
+                                                <Thickness Left="2" Right="2" Top="2" Bottom="2" />
+                                            </LinearThicknessKeyFrame.Value>
+                                        </LinearThicknessKeyFrame>
+                                        <DiscreteThicknessKeyFrame KeyTime="0:0:1">
+                                            <DiscreteThicknessKeyFrame.Value>
+                                                <Thickness Left="2" Right="2" Top="2" Bottom="2" />
+                                            </DiscreteThicknessKeyFrame.Value>
+                                        </DiscreteThicknessKeyFrame>
+                                        <SplineThicknessKeyFrame KeySpline="0.6,0.0 0.9,0.00" KeyTime="0:0:3">
+                                            <SplineThicknessKeyFrame.Value>
+                                                <Thickness Left="2" Right="2" Top="2" Bottom="2" />
+                                            </SplineThicknessKeyFrame.Value>
+                                        </SplineThicknessKeyFrame>
+
+                                    </ThicknessAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+
+                        </EventTrigger>
+                    </Style.Triggers>
+
+                </Style>
+            </Button.Style>
+        </Button>
+        <Border BorderBrush ="{DynamicResource {x:Static SystemColors.InactiveBorderBrushKey}}"  BorderThickness="1" Background="White" HorizontalAlignment="Left" Height="521" Margin="23,103,0,0" VerticalAlignment="Top" Width="447">
+            <TreeView ItemsSource="{Binding Tree}"  BorderBrush="White" HorizontalAlignment="Left" Height="501" VerticalAlignment="Top" Width="428" Margin="9.2,9.2,0,0">
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding Checked, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            <Image Source="{Binding Icon}" Width="16" Height="16"/>
+                            <Label Content="{Binding Name}"/>
+                        </StackPanel>
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
+
+            </TreeView>
+        </Border>
+
+    </Grid>
+</Window>
