@@ -157,7 +157,7 @@ namespace Attribute_and_Type_Definition_Management_Tool
 
             //}
 
-            int i = 1;
+            int index = 0;
 
             var itemFromBack = vm.getAllDeviceMat();
 
@@ -170,25 +170,25 @@ namespace Attribute_and_Type_Definition_Management_Tool
                     DataGridTextColumn textColumn = new DataGridTextColumn();
                     textColumn.Header = item.Name;
                     textColumn.IsReadOnly = true;
-                    textColumn.SortMemberPath = string.Format(item.Name, i);
-                    textColumn.Binding = new Binding(string.Format(item.Name, i));
-                    textColumn.DisplayIndex = i;
+                    textColumn.SortMemberPath = string.Format("Sizes[{0}]", index);
+                    textColumn.Binding = new Binding(string.Format("Sizes[{0}]", index));
+                    textColumn.DisplayIndex = index;
                     textColumn.MinWidth = 2;
 
 
                     dataGrid.Columns.Add(textColumn);
 
-                    vm.ExeAdd(dataGrid);
+                   
                     var items = new List<Item>();
                     //    items.Add(new Item() {   Asst = "hi:" });
 
                     //  dataGrid.ItemsSource = items;
 
-                    GetDeviceAndIndex.Add(new DeviceAndIndex() { Device = item, index = i });
-                    i++;
+                    GetDeviceAndIndex.Add(new DeviceAndIndex() { Device = item, index = index });
+                    index++;
                 }
             }
-
+            vm.ExeAdd(dataGrid);
             //vm.CmdAdd.Execute(dataGrid);
 
         }
