@@ -47,7 +47,8 @@ namespace Attribute_and_Type_Definition_Management_Tool
             InitializeComponent();
             GetDeviceAndIndex = new List<DeviceAndIndex>();
 
-
+            Combo.Text = "Please Select";
+        
 
         }
 
@@ -97,10 +98,16 @@ namespace Attribute_and_Type_Definition_Management_Tool
                     textColumn.Binding = new Binding(item);
                     textColumn.DisplayIndex = 1;
                     textColumn.MinWidth = 2;
+                    var spHeader = new StackPanel() { Orientation = Orientation.Horizontal };
+                    spHeader.Children.Add(new TextBlock(new Run(item)));
+                    var button = new Button();
+                    button.Click += Button_Filter_Click;
+                    button.Content = "Filter";
+                    spHeader.Children.Add(button);
+                    textColumn.Header = spHeader;
                     dataGrid.Columns.Add(textColumn);
-
                     var items = new List<Item>();
-
+                 
                     foreach (var i in vm.MyGrid)
                     {
                         items.Add(new Item() { Attributes = i.Attributes, ID = i.ID, Def_Unit = i.Def_Unit, Data_Service = i.Data_Service, Assistant = i.Assistant, Type = i.Type, AttrFoldPath = i.AttrFoldPath });
@@ -114,6 +121,11 @@ namespace Attribute_and_Type_Definition_Management_Tool
             }
 
             }
+
+        private void Button_Filter_Click(object sender, RoutedEventArgs e)
+        {
+            DataGridTextColumn obj = ((FrameworkElement)sender).DataContext as DataGridTextColumn;
+        }
 
         public class Item
         {
@@ -156,7 +168,7 @@ namespace Attribute_and_Type_Definition_Management_Tool
 
 
             //}
-
+            
             int index = 0;
 
             var itemFromBack = vm.getAllDeviceMat();
@@ -170,8 +182,8 @@ namespace Attribute_and_Type_Definition_Management_Tool
                     DataGridTextColumn textColumn = new DataGridTextColumn();
                     textColumn.Header = item.Name;
                     textColumn.IsReadOnly = true;
-                    textColumn.SortMemberPath = string.Format("Sizes[{0}]", index);
-                    textColumn.Binding = new Binding(string.Format("Sizes[{0}]", index));
+                    textColumn.SortMemberPath = string.Format("Custom[" + item.Name + "]", index);
+                    textColumn.Binding = new Binding(string.Format("Custom[" + item.Name + "]", index));
                     textColumn.DisplayIndex = index;
                     textColumn.MinWidth = 2;
 
@@ -195,12 +207,11 @@ namespace Attribute_and_Type_Definition_Management_Tool
 
         private void Combo_DropDownClosed(object sender, EventArgs e)
         {
-
-        }
-
-        private void Combo_DropDownOpened(object sender, EventArgs e)
-        {
-
+            var vm = DataContext as VmMainWindow1.VmMainWindow;
+            if (vm.SelType != null)
+            {
+                Combo.Text = vm.SelType.TypeName;
+            }
         }
 
         private void Combo_PreviewTextInput(object sender, TextCompositionEventArgs e)

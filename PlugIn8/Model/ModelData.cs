@@ -12,6 +12,7 @@ namespace Attribute_and_Type_Definition_Management_Tool
 {
     public class ModelData:Helpers.VmBase
     {
+        public Dictionary<string, object> Custom { get; set; }
 
         private AttributeId _mask;
         public AttributeId Mask
@@ -186,6 +187,7 @@ namespace Attribute_and_Type_Definition_Management_Tool
 
             public ModelData()
             {
+            Custom = new Dictionary<string, object>();
         }
 
 

@@ -38,6 +38,8 @@ namespace Attribute_and_Type_Definition_Management_Tool
 
         public class VmMainWindow : Helpers.VmBase
         {
+
+           
             public ImageSource Icon { get; set; }
             public class TabandAttr
                 {
@@ -88,6 +90,7 @@ namespace Attribute_and_Type_Definition_Management_Tool
                 Type = new ObservableCollection<ComboModelView>();
                 StringType = new List<string>();
                 MaterialModel _devices = new MaterialModel();
+               
 
                 myApplication.Selection[0].ExecuteFormula("Ut;A5;", out catalogName); //only if run from materials and uner materials. have to do one for standardkatalog
 
@@ -272,7 +275,7 @@ namespace Attribute_and_Type_Definition_Management_Tool
                    
                     SolidColorBrush mySolidColorBrush = new SolidColorBrush { Color = Colors.SteelBlue };
                     SolidColorBrush mySolidColorBrush2 = new SolidColorBrush { Color = Colors.White };
-                    var test2 = new List<Tuple<string, int>>();
+                   
                     MyGrid.Add(new ModelData() { FontSize = "13", ColorSet = mySolidColorBrush, Attributes = x.TabName.Name, FontSet = mySolidColorBrush2 });
                     {
                         x.TabAttributesWithId.ToList().ForEach(y =>
@@ -280,11 +283,17 @@ namespace Attribute_and_Type_Definition_Management_Tool
                             var Destinationpath = GetPath(y);
                             SolidColorBrush mySolidColorBrush3 = new SolidColorBrush { Color = Colors.Black };
                             var getType = GetAttrType(y.Attributes.GetAttributeValue(AttributeId.AttributType));
-                            var test = new Tuple<string, int>("Size[0]", val);
-                            var test3 = new Tuple<string, int>("Size[1]", val+2);
-                            test2.Add(test);
-                            test2.Add(test3);
-                            MyGrid.Add(new ModelData() { Type = getType.ToString(), Source = y, Data_Service = y.Attributes.GetAttributeValue((AttributeId)177, null), FontSet = mySolidColorBrush3, ID = int.Parse(y.Attributes.GetAttributeValue(AttributeId.Aid)), Attributes = y.Name, TabBelongsToo = x.TabName.Name, Assistant = y.Name, AttrFoldPath = Destinationpath, Unit_group = y.Attributes.GetAttributeValue((AttributeId)698, null), Sizes = test2 });
+                            var Dic = new Dictionary<string, object>();
+                            var id = int.Parse(y.Attributes.GetAttributeValue(AttributeId.Aid));
+                            //var DevicesToshow = DevicesAndDetail.Select(p => p.Device.Attributes.Where(l => l.Id == (AttributeId)id)).FirstOrDefault();
+                            //var DevicesToshow = DevicesAndDetail.Where(p => p.Device.Attributes.Where(l => l.Id == (AttributeId)id))).S();
+                            var DevicesToshow = from i in DevicesAndDetail from u in i.Device.Attributes where u.Id == (AttributeId)id select i;
+                            foreach (var device in DevicesToshow)
+                            {
+                                Dic.Add(device.Device.Name, "X");
+                            }
+
+                            MyGrid.Add(new ModelData() { Type = getType.ToString(), Source = y, Data_Service = y.Attributes.GetAttributeValue((AttributeId)177, null), FontSet = mySolidColorBrush3, ID = id, Attributes = y.Name, TabBelongsToo = x.TabName.Name, Assistant = y.Name, AttrFoldPath = Destinationpath, Unit_group = y.Attributes.GetAttributeValue((AttributeId)698, null), Custom = Dic });
                             val++;
                         });
                     }
