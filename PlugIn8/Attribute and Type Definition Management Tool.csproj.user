@@ -3,7 +3,12 @@
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{1F37CB63-53FE-464D-B0DC-9F18C71508FB}">
-        <ClientPlugInProject />
+        <ClientPlugInProject>
+          <DebugStartPlugIn>False</DebugStartPlugIn>
+          <DebugPlugInName>
+          </DebugPlugInName>
+          <AutoUpdateDll>True</AutoUpdateDll>
+        </ClientPlugInProject>
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>

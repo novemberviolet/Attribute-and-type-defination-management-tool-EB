@@ -121,7 +121,7 @@ namespace Attribute_and_Type_Definition_Management_Tool
 
                 var selindex = obj;
                 int index = (int)selindex + 1;
-                MyGrid.Insert(index, new ModelData() { Attributes = Child.Name, ColorSet = mySolidColorBrush3 });
+                MyGrid.Insert(index, new ModelData() { Attributes = Child.Name, FontSet = mySolidColorBrush3 });
 
 
 
@@ -266,23 +266,30 @@ namespace Attribute_and_Type_Definition_Management_Tool
                 //    }));
                 //});
                 #endregion
+                int val = 0;
                 listToShow.ForEach(x =>
                 {
+                   
                     SolidColorBrush mySolidColorBrush = new SolidColorBrush { Color = Colors.SteelBlue };
                     SolidColorBrush mySolidColorBrush2 = new SolidColorBrush { Color = Colors.White };
+                    var test2 = new List<Tuple<string, int>>();
                     MyGrid.Add(new ModelData() { FontSize = "13", ColorSet = mySolidColorBrush, Attributes = x.TabName.Name, FontSet = mySolidColorBrush2 });
                     {
                         x.TabAttributesWithId.ToList().ForEach(y =>
                         {
                             var Destinationpath = GetPath(y);
                             SolidColorBrush mySolidColorBrush3 = new SolidColorBrush { Color = Colors.Black };
-                            var getType = GetAttrType(y.Attributes.GetAttributeValue(AttributeId.AttributType)); 
-                            MyGrid.Add(new ModelData() { Type = getType.ToString() , Source = y, FontSet = mySolidColorBrush3, ID = int.Parse(y.Attributes.GetAttributeValue(AttributeId.Aid)), Attributes = y.Name, TabBelongsToo = x.TabName.Name, Assistant = y.Name, AttrFoldPath = Destinationpath, Unit_group = y.Attributes.GetAttributeValue((AttributeId)698, null) });
-
+                            var getType = GetAttrType(y.Attributes.GetAttributeValue(AttributeId.AttributType));
+                            var test = new Tuple<string, int>("Size[0]", val);
+                            var test3 = new Tuple<string, int>("Size[1]", val+2);
+                            test2.Add(test);
+                            test2.Add(test3);
+                            MyGrid.Add(new ModelData() { Type = getType.ToString(), Source = y, Data_Service = y.Attributes.GetAttributeValue((AttributeId)177, null), FontSet = mySolidColorBrush3, ID = int.Parse(y.Attributes.GetAttributeValue(AttributeId.Aid)), Attributes = y.Name, TabBelongsToo = x.TabName.Name, Assistant = y.Name, AttrFoldPath = Destinationpath, Unit_group = y.Attributes.GetAttributeValue((AttributeId)698, null), Sizes = test2 });
+                            val++;
                         });
                     }
                 });
-
+              
             }
 
             private object GetAttrType(string v)

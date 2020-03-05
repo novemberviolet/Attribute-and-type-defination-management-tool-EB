@@ -28,7 +28,6 @@ namespace Attribute_and_Type_Definition_Management_Tool
             public ObjectItem Device;
             public int index;
         }
-
         private ObservableCollection<ModelData> _MyGrid;
         public ObservableCollection<ModelData> MyGrid
         {
@@ -38,7 +37,6 @@ namespace Attribute_and_Type_Definition_Management_Tool
                 _MyGrid = value;
             }
         }
-
         public static List<string> GetAtrName { get; set; }
         public List<DeviceAndIndex> GetDeviceAndIndex { get; set; }
 
@@ -60,27 +58,20 @@ namespace Attribute_and_Type_Definition_Management_Tool
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //DataGridTextColumn c1 = new DataGridTextColumn();
-            //c1.Header = "Num";
-            //c1.Binding = new Binding("Num");
-            //c1.Width = 110;
-            //dataGrid.Columns.Add(c1);
-            //DataGridTextColumn c2 = new DataGridTextColumn();
-            //c2.Header = "Start";
-            //c2.Width = 110;
-            //c2.Binding = new Binding("Start");
-            //dataGrid.Columns.Add(c2);
-            //DataGridTextColumn c3 = new DataGridTextColumn();
-            //c3.Header = "Finich";
-            //c3.Width = 110;
-            //c3.Binding = new Binding("Finich");
-            //dataGrid.Columns.Add(c3);
+            //string colProperty = "Name";
 
-            //var items = new List<Item>();
-            //items.Add(new Item() { Start = "Fido" });
-            //items.Add(new Item() { Start = "Fido" });
-            //items.Add(new Item() { Start = "Fido" });
-            //dataGrid.ItemsSource = items;
+            //DataGridTextColumn col = new DataGridTextColumn();
+            //col.Binding = new Binding(colProperty);
+            //var spHeader = new StackPanel() { Orientation = Orientation.Horizontal };
+            //spHeader.Children.Add(new TextBlock(new Run(colProperty)));
+            //var button = new Button();
+            //button.Click += Button_Filter_Click;
+            //button.Content = "Filter";
+            //spHeader.Children.Add(button);
+            //col.Header = spHeader;
+
+            //dataGrid.Columns.Add(col);
+        
 
             var vm = DataContext as VmMainWindow1.VmMainWindow;
 
@@ -97,7 +88,17 @@ namespace Attribute_and_Type_Definition_Management_Tool
                     textColumn.Binding = new Binding(item);
                     textColumn.DisplayIndex = 1;
                     textColumn.MinWidth = 2;
+                    var spHeader = new StackPanel() { Orientation = Orientation.Horizontal };
+                    spHeader.Children.Add(new TextBlock(new Run(item)));
+                    var button = new Button();
+                    //button.Click += Button_Filter_Click;
+                    button.Content = "Filter";
+                    spHeader.Children.Add(button);
+                    textColumn.Header = spHeader;
                     dataGrid.Columns.Add(textColumn);
+               
+
+
 
                     var items = new List<Item>();
 
@@ -114,6 +115,8 @@ namespace Attribute_and_Type_Definition_Management_Tool
             }
 
             }
+
+        
 
         public class Item
         {
@@ -135,10 +138,7 @@ namespace Attribute_and_Type_Definition_Management_Tool
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
+     
 
         public void Button_Click_2(object sender, RoutedEventArgs e)
         {
@@ -157,7 +157,7 @@ namespace Attribute_and_Type_Definition_Management_Tool
 
             //}
 
-            int i = 1;
+            int index = 0;
 
             var itemFromBack = vm.getAllDeviceMat();
 
@@ -170,25 +170,25 @@ namespace Attribute_and_Type_Definition_Management_Tool
                     DataGridTextColumn textColumn = new DataGridTextColumn();
                     textColumn.Header = item.Name;
                     textColumn.IsReadOnly = true;
-                    textColumn.SortMemberPath = string.Format(item.Name, i);
-                    textColumn.Binding = new Binding(string.Format(item.Name, i));
-                    textColumn.DisplayIndex = i;
+                    textColumn.SortMemberPath = string.Format("Sizes[{0}]", index);
+                    textColumn.Binding = new Binding(string.Format("Sizes[{0}]", index));
+                    textColumn.DisplayIndex = index;
                     textColumn.MinWidth = 2;
 
 
                     dataGrid.Columns.Add(textColumn);
 
-                    vm.ExeAdd(dataGrid);
+                   
                     var items = new List<Item>();
                     //    items.Add(new Item() {   Asst = "hi:" });
 
                     //  dataGrid.ItemsSource = items;
 
-                    GetDeviceAndIndex.Add(new DeviceAndIndex() { Device = item, index = i });
-                    i++;
+                    GetDeviceAndIndex.Add(new DeviceAndIndex() { Device = item, index = index });
+                    index++;
                 }
             }
-
+            vm.ExeAdd(dataGrid);
             //vm.CmdAdd.Execute(dataGrid);
 
         }

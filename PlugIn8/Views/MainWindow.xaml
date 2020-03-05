@@ -78,20 +78,7 @@
                                             </Button.Background>
 
                                         </Button>
-                                        <Button Click="Button_Click_1"  BorderThickness="1.5"  BorderBrush="DarkGray"  Content="-" Margin="0,0,0.2,0.2" HorizontalAlignment="Right" Grid.ColumnSpan="2" Width="20.5">
-                                            <Button.Resources>
-                                                <Style TargetType="{x:Type Border}">
-                                                    <Setter Property="CornerRadius" Value="3"/>
-                                                </Style>
-                                            </Button.Resources>
-                                            <Button.Background>
-                                                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                                    <GradientStop Color="#FFFFFF"/>
-                                                    <GradientStop Color="#FFD4D4D4" Offset="2"/>
-                                                </LinearGradientBrush>
-                                            </Button.Background>
-                                        </Button>
-                                    </Grid>
+                                     </Grid>
                                 </DataGridTextColumn.Header>
                             </DataGridTextColumn>
                         </DataGrid.Columns>

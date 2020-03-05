@@ -1,6 +1,9 @@
 ﻿using Aucotec.EngineeringBase.Client.Runtime;
+using PlugIn8.Model;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Windows.Media;
@@ -9,6 +12,7 @@ namespace Attribute_and_Type_Definition_Management_Tool
 {
     public class ModelData:Helpers.VmBase
     {
+
         private AttributeId _mask;
         public AttributeId Mask
         {
@@ -164,14 +168,19 @@ namespace Attribute_and_Type_Definition_Management_Tool
             }
         }
 
+        public List<Tuple<string, int>> Sizes
+        {
+            get;
+            set;
+        }
 
-
-
+        
         public ModelData(ObjectItem source)
             {
                 Source = source;
-            Attributes = source.Name;
+                Attributes = source.Name;
                 Desc = source.Attributes.FindById(AttributeId.Description).ToString();
+          
               
            }
 

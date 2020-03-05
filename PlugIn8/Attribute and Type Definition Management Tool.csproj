@@ -33,13 +33,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Aucotec.EngineeringBase.Client.ExRuntime.v1.0, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6d4e536fc230a61a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Aucotec\Engineering Base 681\DotNet\Pipeline\AddInViews\Aucotec.EngineeringBase.Client.ExRuntime.v1.0.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Aucotec.EngineeringBase.Client.Runtime.v1.0, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6d4e536fc230a61a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Aucotec\Engineering Base 681\DotNet\Pipeline\AddInViews\Aucotec.EngineeringBase.Client.Runtime.v1.0.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="PresentationCore" />
@@ -56,6 +52,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\AttributeAvailabilityColumn.cs" />
     <Compile Include="Model\DeviceModel.cs" />
     <Compile Include="Model\GetAttrDesc.cs" />
     <Compile Include="Model\ObjectItemViewModel.cs" />
@@ -102,8 +99,9 @@
     <VisualStudio>
       <FlavorProperties GUID="{1F37CB63-53FE-464D-B0DC-9F18C71508FB}">
         <ClientPlugInProject>
-          <EBDeploymentVersion>6.8.1</EBDeploymentVersion>
-          <PlugInAssemblyIdentifier>b820a675-8aaa-417f-9e04-348f9215c53b</PlugInAssemblyIdentifier>
+          <EBDeploymentVersion>6.9.0</EBDeploymentVersion>
+          <PlugInAssemblyIdentifier>cbe395d6-9e99-49af-877b-045f247e89e2</PlugInAssemblyIdentifier>
+          <UseDebugVersion>False</UseDebugVersion>
         </ClientPlugInProject>
       </FlavorProperties>
       <FlavorProperties GUID="{1F37CB63-53FE-464D-B0DC-9F18C71508FB}" Configuration="Debug|Any CPU">

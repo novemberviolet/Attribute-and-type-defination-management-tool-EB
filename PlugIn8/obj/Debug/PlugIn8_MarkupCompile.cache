@@ -4,7 +4,7 @@
 library
 C#
 .cs
-D:\source\repos\Attribute and Type Definition Management Tool\PlugIn8\obj\Debug\
+C:\Users\Lamev\source\repos\Attribute-and-type-defination-management-tool-EB\PlugIn8\obj\Debug\
 PlugIn8
 none
 false
@@ -12,9 +12,9 @@ DEBUG;TRACE
 
 3424214991
 
-20-498638861
-15-392567447
+22-488786295
+15906760698
 Views\AttrWindow.xaml;Views\AvailableAttrWIndow.xaml;Views\MainWindow.xaml;
 
-False
+True
 
