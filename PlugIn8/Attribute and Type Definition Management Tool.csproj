@@ -99,8 +99,8 @@
     <VisualStudio>
       <FlavorProperties GUID="{1F37CB63-53FE-464D-B0DC-9F18C71508FB}">
         <ClientPlugInProject>
-          <EBDeploymentVersion>6.9.0</EBDeploymentVersion>
-          <PlugInAssemblyIdentifier>cbe395d6-9e99-49af-877b-045f247e89e2</PlugInAssemblyIdentifier>
+          <EBDeploymentVersion>6.8.3</EBDeploymentVersion>
+          <PlugInAssemblyIdentifier>56cbab96-fe1a-42bc-98c8-2ced59d9761d</PlugInAssemblyIdentifier>
           <UseDebugVersion>False</UseDebugVersion>
         </ClientPlugInProject>
       </FlavorProperties>

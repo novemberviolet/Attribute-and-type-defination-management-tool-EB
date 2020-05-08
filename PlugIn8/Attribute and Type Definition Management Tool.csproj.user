@@ -5,8 +5,7 @@
       <FlavorProperties GUID="{1F37CB63-53FE-464D-B0DC-9F18C71508FB}">
         <ClientPlugInProject>
           <DebugStartPlugIn>False</DebugStartPlugIn>
-          <DebugPlugInName>
-          </DebugPlugInName>
+          <DebugPlugInName>Attribute and Type Definition Management Tool</DebugPlugInName>
           <AutoUpdateDll>True</AutoUpdateDll>
         </ClientPlugInProject>
       </FlavorProperties>
