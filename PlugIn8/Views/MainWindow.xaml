@@ -87,10 +87,12 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <ComboBox x:Name="Combo"  VerticalAlignment="Top" Height="27"  MinWidth="442" Margin="15,5.8,0,0" DropDownClosed="Combo_DropDownClosed" Text="Please Select" DropDownOpened="Combo_DropDownOpened" PreviewTextInput="Combo_PreviewTextInput" IsEditable="True"     StaysOpenOnEdit="True"  IsTextSearchCaseSensitive="False" ItemsSource="{Binding Type, Mode=TwoWay}" SelectedItem="{Binding SelType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"   HorizontalAlignment="Left"   Grid.Row="1" Grid.ColumnSpan="2" Width="487"  >
+        <ComboBox x:Name="Combo"  VerticalAlignment="Top" Height="27"  MinWidth="442" Margin="15,5.8,0,0" DropDownClosed="Combo_DropDownClosed"   PreviewTextInput="Combo_PreviewTextInput" IsEditable="True"     StaysOpenOnEdit="True"  IsTextSearchCaseSensitive="False" ItemsSource="{Binding Type, Mode=TwoWay}" SelectedItem="{Binding SelType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"   HorizontalAlignment="Left"   Grid.Row="1" Grid.ColumnSpan="2" Width="487"  >
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
+                        <CheckBox  IsChecked="{Binding TypeCheckBox, Mode=TwoWay}" />
+                        
                         <Label HorizontalAlignment="Left" Content="{Binding TypeName}"/>
                     </StackPanel>
                 </DataTemplate>
